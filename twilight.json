@@ -1040,7 +1040,44 @@
             },
             "icon": "sicon-play-circle",
             "path": "Video-banner",
-            "fields": []
+            "fields": [
+                {
+                    "id": "title",
+                    "type": "static",
+                    "format": "title",
+                    "label": "Title",
+                    "value": "ارفع البانر بصيغة .gif",
+                    "variant": "h3",
+                    "icon": "sicon-format-text"
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Image",
+                    "description": "صورة البنر  المقاس المناسب للصورة هو 728×90 بكسل",
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://hostname.com/image.png",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "required": true
+                },
+                {
+                    "id": "string",
+                    "type": "string",
+                    "format": "text",
+                    "label": "String",
+                    "description": "اضف عنوان مختصر ومفيد",
+                    "labelHTML": null,
+                    "placeholder": "العنوان",
+                    "icon": "sicon-format-text-alt",
+                    "value": "العنوان علي البانر",
+                    "multilanguage": false,
+                    "required": true,
+                    "minLength": "0",
+                    "maxLength": "200"
+                }
+            ]
         }
     ],
     "support_url": null,
