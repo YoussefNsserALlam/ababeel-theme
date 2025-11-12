@@ -18,10 +18,10 @@ class App extends AppHelpers {
       this.initiateStickyMenu();
     }
     this.initAddToCart();
+    this.initiateAdAlert();
     this.initiateDropdowns();
     this.initiateModals();
     this.initiateCollapse();
-    this.initAttachWishlistListeners();
     this.changeMenuDirection()
     initTootTip();
     this.loadModalImgOnclick();
@@ -43,11 +43,9 @@ class App extends AppHelpers {
       app.all('.root-level.has-children',item=>{
         if(item.classList.contains('change-menu-dir')) return;
         app.on('mouseover',item,()=>{
-          let submenu = item.querySelector('.sub-menu .sub-menu');
-          if(submenu){
-            let rect = submenu.getBoundingClientRect();
+          let submenu = item.querySelector('.sub-menu .sub-menu'),
+              rect = submenu.getBoundingClientRect();
             (rect.left < 10 || rect.right > window.innerWidth - 10) && app.addClass(item,'change-menu-dir')
-          }      
         })
       })
     }
@@ -121,7 +119,7 @@ isElementLoaded(selector){
         toast: true,
         position: salla.config.get('theme.is_rtl') ? 'top-start' : 'top-end',
         showConfirmButton: false,
-        timer: 2000,
+        timer: 3500,
         didOpen: (toast) => {
           toast.addEventListener('mouseenter', Swal.stopTimer)
           toast.addEventListener('mouseleave', Swal.resumeTimer)
@@ -141,8 +139,7 @@ isElementLoaded(selector){
   this.isElementLoaded('#mobile-menu').then((menu) => {
 
  
-  const mobileMenu = new MobileMenu(menu, "(max-width: 1024px)", "( slidingSubmenus: false)");
-
+  const mobileMenu = new MobileMenu(menu, "(max-width: 2024px)", "( slidingSubmenus: false)");
   salla.lang.onLoaded(() => {
     mobileMenu.navigation({ title: salla.lang.get('blocks.header.main_menu') });
   });
@@ -160,22 +157,6 @@ isElementLoaded(selector){
   });
 
   }
- initAttachWishlistListeners() {
-    let isListenerAttached = false;
-  
-    function toggleFavoriteIcon(id, isAdded = true) {
-      document.querySelectorAll('.s-product-card-wishlist-btn[data-id="' + id + '"]').forEach(btn => {
-        app.toggleElementClassIf(btn, 's-product-card-wishlist-added', 'not-added', () => isAdded);
-        app.toggleElementClassIf(btn, 'pulse-anime', 'un-favorited', () => isAdded);
-      });
-    }
-  
-    if (!isListenerAttached) {
-      salla.wishlist.event.onAdded((event, id) => toggleFavoriteIcon(id));
-      salla.wishlist.event.onRemoved((event, id) => toggleFavoriteIcon(id, false));
-      isListenerAttached = true; // Mark the listener as attached
-    }
-  }
 
   initiateStickyMenu() {
     let header = this.element('#mainnav'),
@@ -189,8 +170,8 @@ isElementLoaded(selector){
     window.addEventListener('resize', () => this.setHeaderHeight())
 
     window.addEventListener('scroll', () => {
-      window.scrollY >= header.offsetTop + height ? header.classList.add('fixed-pinned', 'animated') : header.classList.remove('fixed-pinned');
-      window.scrollY >= 200 ? header.classList.add('fixed-header') : header.classList.remove('fixed-header', 'animated');
+      // window.scrollY >= header.offsetTop + height ? header.classList.add('fixed-pinned', 'animated') : header.classList.remove('fixed-pinned');
+      window.scrollY >= 200 ? header.classList.add('ababeel-fixed-header') : header.classList.remove("ababeel-fixed-header");
     }, { passive: true });
   }
 
@@ -198,6 +179,35 @@ isElementLoaded(selector){
     let height = this.element('#mainnav .inner').clientHeight,
       header = this.element('#mainnav');
     header.style.height = height + 'px';
+  }
+
+  /**
+   * Because salla caches the response, it's important to keep the alert disabled if the visitor closed it.
+   * by store the status of the ad in local storage `salla.storage.set(...)`
+   */
+  initiateAdAlert() {
+    let ad = this.element(".salla-advertisement");
+
+    if (!ad) {
+      return;
+    }
+
+    if (!salla.storage.get('statusAd-' + ad.dataset.id)) {
+      ad.classList.remove('hidden');
+    }
+
+    this.onClick('.ad-close', function (event) {
+      event.preventDefault();
+      salla.storage.set('statusAd-' + ad.dataset.id, 'dismissed');
+
+      anime({
+        targets: '.salla-advertisement',
+        opacity: [1, 0],
+        duration: 300,
+        height: [ad.clientHeight, 0],
+        easing: 'easeInOutQuad',
+      });
+    });
   }
 
   initiateDropdowns() {
@@ -259,7 +269,7 @@ isElementLoaded(selector){
 
         const toggleState = (isOpen) => {
           state.isOpen = !isOpen
-          this.toggleElementClassIf([content, trigger], 'is-closed', 'is-opened', () => isOpen);
+          this.toggleElementClassIf(content, 'is-closed', 'is-opened', () => isOpen);
         }
 
         trigger.addEventListener('click', () => {
@@ -291,7 +301,7 @@ isElementLoaded(selector){
    */
   initAddToCart() {
     salla.cart.event.onUpdated(summary => {
-      document.querySelectorAll('[data-cart-total]').forEach(el => el.innerHTML = salla.money(summary.total));
+      document.querySelectorAll('[data-cart-total]').forEach(el => el.innerText = salla.money(summary.total));
       document.querySelectorAll('[data-cart-count]').forEach(el => el.innerText = salla.helpers.number(summary.count));
     });
 
