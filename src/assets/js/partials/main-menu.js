@@ -5,11 +5,25 @@ class NavigationMenu extends HTMLElement {
             .then(() => {
                 this.menus = [];
                 this.displayAllText = salla.lang.get('blocks.home.display_all');
+                /**
+                * Avoid saving the menu to localStorage (default) when in the development environment
+                * or when modifying the theme in the dashboard
+                */
+                const isPreview = salla.config.isDebug()
+                const cacheKey = `menus_${salla.lang.locale}`
+                const cachedMenus = salla.storage.getWithTTL(cacheKey, [])
+
+                if (cachedMenus.length > 0 && !isPreview) {
+                    this.menus = cachedMenus
+                    return this.render()
+                }
 
                 return salla.api.component.getMenus()
                 .then(({ data }) => {
                     this.menus = data;
+                    !isPreview && salla.storage.setWithTTL(cacheKey, this.menus)
                     return this.render()
+
                 }).catch((error) => salla.logger.error('salla-menu::Error fetching menus', error));
             });
     }
@@ -39,8 +53,8 @@ class NavigationMenu extends HTMLElement {
     * @returns {String}
     */
     getDesktopClasses(menu, isRootMenu) {
-        return `!hidden lg:!block ${isRootMenu ? 'root-level lg:!inline-block' : 'relative'} ${menu.products ? ' mega-menu' : ''}
-        ${this.hasChildren(menu) ? ' has-children' : ''}`
+        // return `hidden lg:!block ${isRootMenu ? 'root-level lg:!inline-block' : 'relative'} ${menu.products ? ' mega-menu' : ''}
+        // ${this.hasChildren(menu) ? ' has-children' : ''}`
     }
 
     /**
@@ -84,7 +98,7 @@ class NavigationMenu extends HTMLElement {
         return `
         <li class="${this.getDesktopClasses(menu, isRootMenu)}" ${menu.attrs}>
             <a href="${menu.url}" aria-label="${menu.title || 'category'}" ${menu.link_attrs}>
-                <span>${menu.title}</span>
+                <span>${menu.title} </span>
             </a>
             ${this.hasChildren(menu) ? `
                 <div class="sub-menu ${this.hasProducts(menu) ? 'w-full left-0 flex' : 'w-56'}">
@@ -107,8 +121,8 @@ class NavigationMenu extends HTMLElement {
     getMenus() {
         return this.menus.map((menu) => `
             ${this.getMobileMenu(menu, this.displayAllText)}
-            ${this.getDesktopMenu(menu, true)}
         `).join('\n');
+        // ${this.getDesktopMenu(menu, true)}
     }
 
     /**
