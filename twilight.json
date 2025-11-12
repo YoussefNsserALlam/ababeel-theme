@@ -1031,6 +1031,16 @@
                     "maxLength": 30
                 }
             ]
+        },
+        {
+            "key": "56ea1515-598c-4676-90ce-98fecc3dd191",
+            "title": {
+                "en": "Video-banner",
+                "ar": "Video-banner"
+            },
+            "icon": "sicon-play-circle",
+            "path": "Video-banner",
+            "fields": []
         }
     ],
     "support_url": null,
