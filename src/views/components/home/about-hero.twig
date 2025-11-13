@@ -1,0 +1,55 @@
+
+<style>
+    .about-hero {
+        background-color: #034665;
+        padding: 60px;
+        min-height: 300px;
+        display: flex;
+        gap: 80px;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .inner-content {
+            width: 1000px;
+
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+    }
+    .about-hero h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    .about-hero p {
+        font-size: 1.2em;
+    }
+    .about-hero button {
+        background-color: transparent;
+        color: white;
+        border: solid white 2px;
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+        &:hover {
+            background-color: white;
+            color: #0d506c;
+        }
+    }
+</style>
+
+<section class="about-hero">
+<div class="inner-content">
+
+<div>
+<h1>{{component.about_hero_title}}</h1>
+</div>
+<div>
+<p>{{component.about_hero_description}}</p>
+<button>من نحن؟</button>
+</div>
+</div>
+</section>
