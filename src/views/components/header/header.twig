@@ -45,11 +45,23 @@
 .navbar-brand img
 {
     max-height:4rem;
-    filter: invert(1);
+    border-radius: 50%;
+    animation: Rotate_Logo infinite linear 10s;
 }
-.ababeel-fixed-header .navbar-brand img
+@keyframes Rotate_Logo 
 {
-    filter: invert(0) !important;
+    0%
+    {
+        transform: rotate(100deg);
+    }
+    50%
+    {
+        transform: rotate(180deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
 }
 .header-btn__icon, #mainnav i 
 {

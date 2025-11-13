@@ -1,8 +1,15 @@
 {# Video-banner.twig #}
 <section class="video-banner">
-    {# {% if component.string %}
-        <h3>{{ component.string }}</h3>
-    {% endif %} #}
+    {% if component.text_area %}
+    <style>
+        .video-banner video
+        {
+            filter: brightness(0.5);
+        }
+
+    </style>
+        <h1>{{ component.text_area }}</h1>
+    {% endif %}
 
     {% if component.url %}
         <video src="{{ component.url }}" autoplay loop></video>
