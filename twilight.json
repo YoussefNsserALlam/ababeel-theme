@@ -1090,6 +1090,16 @@
                     "icon": "sicon-format-size"
                 }
             ]
+        },
+        {
+            "key": "d17bc0dd-6031-452c-b3d6-e2364eae5441",
+            "title": {
+                "en": "about-hero",
+                "ar": "قسم التعريف"
+            },
+            "icon": "sicon-store",
+            "path": "home.about-hero",
+            "fields": []
         }
     ],
     "support_url": null,
