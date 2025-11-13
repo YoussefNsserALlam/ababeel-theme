@@ -1,10 +1,73 @@
 
+<style>
+  .All-line
+  {
+    width: 100%;
+  }
+  .All-line .line
+  {
+    width: 50px;
+    height: 5px;
+    border-radius: 10px;
+    background-color: #fa9939;
+    margin: 5px;
+  }
+  .All-line .Circle
+  {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fa9939;
+    margin: 5px;
+  }
+  .s-block__title__Alla
+  {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .store-footer__inner
+  {
+    background-color: #035173 !important;
+    color: #f8dcbf;
+  }
+ 
+  salla-contacts .s-contacts-list
+  {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+
+salla-contacts .s-contacts-list .s-contacts-item
+{
+    flex-direction: column;
+    align-items: center;
+}
+salla-contacts .s-contacts-list .s-contacts-item span
+{
+    margin: 5px;
+}
+
+salla-social ul
+{
+    justify-content: space-around;
+}
+
+@media screen and (max-width:500px) 
+{
+    .footer_theme_inner
+    {
+        flex-direction: column;
+    }
+}
+</style>
 <footer class="store-footer">
 	<div aria-label="footer" class="store-footer__inner">
-		<div class="container grid grid-col-1 lg:grid-cols-6 gap-8 lg:gap-6">
-			<div class="lg:col-span-2 rtl:lg:pl-20 ltr:lg:pr-20">
-				<a href="{{ link('/') }}" class="flex items-center m-0">
-					<h3>{{store.name}}</h3>
+		<div class="container flex grid-col-1 lg:grid-cols-6 gap-8 lg:gap-6 footer_theme_inner">
+			<div class="lg:col-span-2 rtl:lg:pl-20 ltr:lg:pr-20 text-center">
+				<a href="{{ link('/') }}" class="flex items-center m-0 link_inner_store_name flex justify-center align-center">
+					<h1>{{store.name}}</h1>
 				</a>
 				  <div class="All-line flex items-center justify-center">
                      <div class="line"></div>
@@ -12,7 +75,7 @@
                    <div class="line"></div>
                   </div>
 				{% if store.description %}
-					<p class="max-w-sm leading-6 mb-6">
+					<p class="max-w-sm leading-6 mb-6 text-center">
 						{{ store.description|raw }}
 					</p>
 				{% endif %}
@@ -23,7 +86,7 @@
 
           {# vat #}
           {% if store.settings.tax.number %}
-            <div class="flex rtl:space-x-reverse space-x-2 items-end">
+            <div class="flex rtl:space-x-reverse space-x-2 items-end flex-col">
               {% if store.settings.tax.certificate %}
                 <a class="load-img-onclick" data-modal-id="modal-value-tax" href="#/" alt="{{ store.settings.tax.number }}">
                   <img width="100%" height="100%" src="{{ 'images/s-empty.png' | cdn }}" data-src="{{'images/tax.png' | cdn(70,70)}}" class="lazy w-10 rounded-sm hover:opacity-80 transition-opacity" alt="value added tax">
@@ -47,14 +110,14 @@
             {% endif %}
           {% endif %}
         </div>
-		<div class="flex justify-between items-center">
+		<div class="flex justify-between items-center flex-col">
 			<div>
 				<h3>{{ trans('blocks.footer.pages_links') }}</h3>
 				<salla-menu source="footer"></salla-menu>
 			</div>
 
 			<div>
-				<salla-contacts></salla-contacts>
+				<salla-contacts class="text-center"></salla-contacts>
 
 				<div class="lg:hidden contact-social">
 					<salla-social></salla-social>
@@ -73,36 +136,3 @@
 </div>
 
 <span class="hidden bottom-2 rtl:pl-24 ltr:pr-24 md:grid-cols-3"></span></footer>
-
-<style>
-  .All-line
-  {
-    width: 100%;
-  }
-  .All-line .line
-  {
-    width: 50px;
-    height: 5px;
-    border-radius: 10px;
-    background-color: black;
-    margin: 5px;
-  }
-  .All-line .Circle
-  {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: black;
-    margin: 5px;
-  }
-  .s-block__title__Alla
-  {
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .store-footer__inner
-  {
-    background-color: #035173;
-  }
-</style>

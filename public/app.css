@@ -24371,11 +24371,11 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     .ltr\:lg\:pl-10:where([dir="ltr"], [dir="ltr"] *) {
         padding-left: 2.5rem;
     }
-    .ltr\:lg\:pr-20:where([dir="ltr"], [dir="ltr"] *) {
-        padding-right: 5rem;
-    }
     .ltr\:lg\:pl-20:where([dir="ltr"], [dir="ltr"] *) {
         padding-left: 5rem;
+    }
+    .ltr\:lg\:pr-20:where([dir="ltr"], [dir="ltr"] *) {
+        padding-right: 5rem;
     }
 }
 @media (min-width: 480px) {
