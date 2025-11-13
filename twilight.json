@@ -1042,15 +1042,6 @@
             "path": "Video-banner",
             "fields": [
                 {
-                    "id": "title",
-                    "type": "static",
-                    "format": "title",
-                    "label": "Title",
-                    "value": "ارفع البانر بصيغة .gif",
-                    "variant": "h3",
-                    "icon": "sicon-format-text"
-                },
-                {
                     "id": "string",
                     "type": "string",
                     "format": "text",
@@ -1079,6 +1070,21 @@
                     "required": false,
                     "minLength": "0",
                     "maxLength": "200"
+                },
+                {
+                    "id": "text_area",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Text Area",
+                    "description": "اضف جملة مختصرة مفيدة",
+                    "labelHTML": null,
+                    "placeholder": "Your text here",
+                    "icon": "sicon-typography",
+                    "value": null,
+                    "multilanguage": true,
+                    "required": true,
+                    "minLength": 20,
+                    "maxLength": 255
                 }
             ]
         }
