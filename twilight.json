@@ -1155,7 +1155,68 @@
             },
             "icon": "sicon-youtube",
             "path": "Video-with-text",
-            "fields": []
+            "fields": [
+                {
+                    "id": "url",
+                    "type": "string",
+                    "format": "url",
+                    "inputType": "url",
+                    "label": "URL",
+                    "description": "رابط الفيديو (فيديو قصير)",
+                    "labelHTML": null,
+                    "placeholder": null,
+                    "icon": "sicon-link",
+                    "value": null,
+                    "required": true,
+                    "minLength": "10",
+                    "maxLength": "100"
+                },
+                {
+                    "id": "string",
+                    "type": "string",
+                    "format": "text",
+                    "label": "String",
+                    "description": "النص التوضيحي",
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": true,
+                    "minLength": "10",
+                    "maxLength": "200"
+                },
+                {
+                    "id": "string_1",
+                    "type": "string",
+                    "format": "text",
+                    "label": "String 1",
+                    "description": "اضافة زر",
+                    "labelHTML": null,
+                    "placeholder": "النص داخل الزر مثل ( تعرف علي المزيد)",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": 30
+                },
+                {
+                    "id": "url_1",
+                    "type": "string",
+                    "format": "url",
+                    "inputType": "url",
+                    "label": "URL 1",
+                    "description": "الرابط داخل الزر",
+                    "labelHTML": null,
+                    "placeholder": "https",
+                    "icon": "sicon-link",
+                    "value": null,
+                    "required": false,
+                    "minLength": "0",
+                    "maxLength": "100"
+                }
+            ]
         }
     ],
     "support_url": null,
