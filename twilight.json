@@ -1051,18 +1051,6 @@
                     "icon": "sicon-format-text"
                 },
                 {
-                    "id": "image",
-                    "type": "string",
-                    "format": "image",
-                    "label": "Image",
-                    "description": "صورة البنر  المقاس المناسب للصورة هو 728×90 بكسل",
-                    "labelHTML": null,
-                    "placeholder": "e.g. https://hostname.com/image.png",
-                    "icon": "sicon-image",
-                    "value": null,
-                    "required": true
-                },
-                {
                     "id": "string",
                     "type": "string",
                     "format": "text",
@@ -1074,6 +1062,21 @@
                     "value": "العنوان علي البانر",
                     "multilanguage": false,
                     "required": true,
+                    "minLength": "0",
+                    "maxLength": "200"
+                },
+                {
+                    "id": "url",
+                    "type": "string",
+                    "format": "url",
+                    "inputType": "url",
+                    "label": "URL",
+                    "description": "رابط الصورة الفيديو (فيديو قصير)",
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://salla.sa",
+                    "icon": "sicon-link",
+                    "value": "https://template.canva.com/EAGKoibcXeQ/1/document_1440w-wq7ww--OGYQ.mp4",
+                    "required": false,
                     "minLength": "0",
                     "maxLength": "200"
                 }
