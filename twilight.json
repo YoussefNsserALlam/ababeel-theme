@@ -1146,6 +1146,16 @@
                     "maxLength": 30
                 }
             ]
+        },
+        {
+            "key": "a71602cd-0490-4516-a1a8-d35cf36ff2d9",
+            "title": {
+                "en": "Video-with-text",
+                "ar": "فيديو مع نص"
+            },
+            "icon": "sicon-youtube",
+            "path": "Video-with-text",
+            "fields": []
         }
     ],
     "support_url": null,
