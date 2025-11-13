@@ -6,12 +6,29 @@
         {
             filter: brightness(0.5);
         }
-
+        .video-banner
+        {
+            position: relative;
+        }
+        .video-banner h1
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            font-family: sans-serif;
+            color: #f59b3e;
+        }
+        
     </style>
         <h1>{{ component.text_area }}</h1>
     {% endif %}
 
     {% if component.url %}
         <video src="{{ component.url }}" autoplay loop></video>
+    <script>
+        document.querySelector("video").play()
+    </script>
     {% endif %}
 </section>
