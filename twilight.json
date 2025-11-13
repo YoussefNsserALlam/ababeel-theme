@@ -1099,7 +1099,53 @@
             },
             "icon": "sicon-store",
             "path": "home.about-hero",
-            "fields": []
+            "fields": [
+                {
+                    "id": "about_hero_title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "about_hero_title",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": true,
+                    "minLength": 6,
+                    "maxLength": 30
+                },
+                {
+                    "id": "about_hero_description",
+                    "type": "string",
+                    "format": "text",
+                    "label": "about_hero_description",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": true,
+                    "minLength": 6,
+                    "maxLength": 30
+                },
+                {
+                    "id": "about_hero_link",
+                    "type": "string",
+                    "format": "url",
+                    "inputType": "url",
+                    "label": "about_hero_link",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://salla.sa",
+                    "icon": "sicon-link",
+                    "value": null,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": 30
+                }
+            ]
         }
     ],
     "support_url": null,
