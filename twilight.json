@@ -1070,6 +1070,24 @@
                     "required": false,
                     "minLength": 20,
                     "maxLength": 255
+                },
+                {
+                    "id": "title",
+                    "type": "static",
+                    "format": "title",
+                    "label": "Title",
+                    "value": "اضافة فيديو في البانر",
+                    "variant": "h4",
+                    "icon": "sicon-format-text"
+                },
+                {
+                    "id": "description",
+                    "type": "static",
+                    "format": "description",
+                    "label": "Description",
+                    "value": "اضف فيديو في البانر اولا يجب رفع الفيديو علي الانترنت وثم وضع الرابط",
+                    "variant": "h1",
+                    "icon": "sicon-format-size"
                 }
             ]
         }
