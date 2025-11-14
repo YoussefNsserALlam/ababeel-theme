@@ -1,0 +1,68 @@
+    {# Video-with-text.twig #}
+    <style>
+        .Video-with-text video
+        {
+            width: 50%;
+        }
+        .Video-with-text
+        {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            direction: rtl;
+        }
+        .Video-with-text button 
+        {
+        background-color: transparent;
+        color: white;
+        border: solid #fa9939 2px;
+        padding: 5px 30px;
+        font-size: 1em;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+        width: fit-content;
+        &:hover {
+            background-color: #fa9939;
+            color: #f8d8b5;
+        }
+    }
+        .text_with_vd
+        {
+            width: 50%;
+            background-color: #035173;
+            color: #f8d8b5;
+            padding: 10px;
+        }
+        .text_with_vd h2
+        {
+            word-spacing: 5px;
+            font-size: 30px;
+            line-height: 2.75rem;
+        }
+        @media screen and (max-width:700px) 
+        {
+            .text_with_vd, .Video-with-text Video
+            {
+                width: 100%;
+            }
+            .text_with_vd h2
+            {
+                text-align: center;
+                font-size: 20px;
+            }
+        }
+    </style>
+    <section class="Video-with-text">
+        {% if component.url %}
+        <video src="{{ component.url }}" autoplay loop playsinline></video>
+         {% endif %}
+        <div class="text_with_vd flex justify-around flex-wrap flex-col items-center">
+            {% if component.string %}
+            <h2>{{ component.string }}</h2>
+            {% endif %}
+            {% if component.string_1 %}
+            <button>{{ component.string_1 }}</button>
+            {% endif %}
+        </div>
+    </section>
