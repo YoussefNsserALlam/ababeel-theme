@@ -2,38 +2,91 @@
 <section class="video-banner">
     {% if component.text_area %}
     <style>
-        .video-banner video
-        {
-            filter: brightness(0.5);
-        }
-        .video-banner
-        {
+        .video-banner {
             position: relative;
+            width: 100%;
+            overflow: hidden;
         }
-        .video-banner h1
-        {
+
+        .video-banner video {
+            filter: brightness(0.5);
+            width: 100%;
+            height: auto;
+            min-height: 60vh;
+            display: block;
+            object-fit: cover;
+        }
+
+        .video-banner-content {
             position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -20%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             z-index: 2;
+        }
+
+        .video-banner h1 {
             font-family: system-ui;
             color: #f7dcbe;
+            text-align: center;
+            width: 90%;
+            max-width: 1000px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        /* Tablet styles */
+        @media (max-width: 992px) {
+            .video-banner h1 {
+                font-size: 2.2em;
+                width: 95%;
+            }
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .video-banner video {
+                min-height: 50vh;
+            }
+
+            .video-banner h1 {
+                font-size: 1.8em;
+                line-height: 1.4;
+            }
+        }
+
+        /* Small mobile styles */
+        @media (max-width: 480px) {
+            .video-banner video {
+                min-height: 40vh;
+            }
+
+            .video-banner h1 {
+                font-size: 1.5em;
+                padding: 0 15px;
+            }
         }
     </style>
-        <h1>{{ component.text_area }}</h1>
+        <div class="video-banner-content">
+            <h1>{{ component.string2 }}</h1>
+        </div>
     {% endif %}
 
     {% if component.url %}
-        <video src="{{ component.url }}" autoplay loop playsinline></video>
-    <script>
+        <video src="{{ component.url }}" autoplay loop playsinline muted></video>
+    <!--<script>
 
         setTimeout(() => {
-            
-        
+
+
         document.querySelector("video").play();
 
     }, 5000);
-    </script>
+    </script>-->
     {% endif %}
 </section>

@@ -1,21 +1,26 @@
-    {# Video-with-text.twig #}
-    <style>
-        .Video-with-text video
-        {
-            width: 50%;
-        }
-        .Video-with-text
-        {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            direction: rtl;
-        }
-        .Video-with-text button 
-        {
+{# Video-with-text.twig #}
+<style>
+    .Video-with-text video {
+        width: 50%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .Video-with-text {
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        direction: rtl;
+        gap: 30px;
+        padding: 40px 20px;
+        align-items: stretch;
+    }
+
+    .Video-with-text button {
         background-color: transparent;
-        color: white;
-        border: solid white 2px;
+        color: #f8d8b5;
+        border: solid #f8d8b5 2px;
         padding: 10px 20px;
         font-size: 1em;
         cursor: pointer;
@@ -23,47 +28,132 @@
         margin-top: 20px;
         transition: all 0.3s ease;
         width: fit-content;
-        &:hover {
-            border-color: #fa9939;
-            color: #f8d8b5;
+        place-self: start;
+    }
+
+    .Video-with-text button:hover {
+        border-color: #fa9939;
+        color: #fa9939;
+    }
+
+    .text_with_vd {
+        width: 50%;
+        background-color: #035173;
+        color: #f8d8b5;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .text_with_vd h2 {
+        word-spacing: 5px;
+        font-size: 30px;
+        line-height: 2.75rem;
+        margin-bottom: 20px;
+    }
+
+    .text_with_vd p {
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    /* Large desktop styles */
+    @media screen and (min-width: 1400px) {
+        .Video-with-text {
+            padding: 60px 20px;
         }
     }
-        .text_with_vd
-        {
-            width: 50%;
-            background-color: #035173;
-            color: #f8d8b5;
-            padding: 10px;
+
+    /* Tablet styles */
+    @media screen and (max-width: 992px) {
+        .Video-with-text {
+            padding: 30px 15px;
+            gap: 20px;
         }
-        .text_with_vd h2
-        {
-            word-spacing: 5px;
-            font-size: 30px;
-            line-height: 2.75rem;
+
+        .text_with_vd {
+            padding: 30px;
         }
-        @media screen and (max-width:700px) 
-        {
-            .text_with_vd, .Video-with-text Video
-            {
-                width: 100%;
-            }
-            .text_with_vd h2
-            {
-                text-align: center;
-                font-size: 20px;
-            }
+
+        .text_with_vd h2 {
+            font-size: 26px;
+            line-height: 2.2rem;
         }
-    </style>
-    <section class="Video-with-text">
-        {% if component.url %}
-        <video src="{{ component.url }}" autoplay loop playsinline></video>
-         {% endif %}
-        <div class="text_with_vd flex justify-around flex-wrap flex-col items-center">
-            {% if component.string %}
-            <h2>{{ component.string }}</h2>
-            {% endif %}
-            {% if component.string_1 %}
-            <button>{{ component.string_1 }}</button>
-            {% endif %}
-        </div>
-    </section>
+    }
+
+    /* Mobile styles */
+    @media screen and (max-width: 768px) {
+        .Video-with-text {
+            flex-direction: column;
+            gap: 0;
+            padding: 20px 15px;
+        }
+
+        .Video-with-text video,
+        .text_with_vd {
+            width: 100%;
+        }
+
+        .Video-with-text video {
+            max-height: 300px;
+            width: 100%;
+        }
+
+        .text_with_vd {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .text_with_vd h2 {
+            text-align: center;
+            font-size: 24px;
+            line-height: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .Video-with-text button {
+            margin: 20px auto 0;
+            place-self: center;
+        }
+    }
+
+    /* Small mobile styles */
+    @media screen and (max-width: 480px) {
+        .Video-with-text {
+            padding: 15px 10px;
+        }
+
+        .text_with_vd {
+            padding: 25px 15px;
+        }
+
+        .text_with_vd h2 {
+            font-size: 20px;
+            line-height: 1.6rem;
+        }
+
+        .Video-with-text video {
+            max-height: 200px;
+        }
+
+        .Video-with-text button {
+            padding: 8px 16px;
+            font-size: 0.9em;
+        }
+    }
+</style>
+
+<section class="Video-with-text">
+    {% if component.url %}
+    <video src="{{ component.url }}" muted autoplay loop playsinline></video>
+    {% endif %}
+    <div class="text_with_vd flex justify-around flex-wrap flex-col items-center">
+        {% if component.string %}
+        <h2>{{ component.string }}</h2>
+        {% endif %}
+        {% if component.string_1 %}
+        <button>{{ component.string_1 }}</button>
+        {% endif %}
+    </div>
+</section>
