@@ -52,6 +52,7 @@ salla-contacts .s-contacts-list .s-contacts-item span
 salla-social ul
 {
     justify-content: space-around;
+    margin-top: 20px;
 }
 salla-apps-icons
 {
@@ -82,20 +83,30 @@ salla-apps-icons .s-apps-icons-list, salla-payments ul
 .store-footer h3
 {
   text-align: center;
+   margin-top: 10px;
 }
 .s-menu-footer-list .s-menu-footer-item
 {
   margin: 5px;
 }
-body
+.store-footer
 {
-  background-color: white;
+  border-top: 2px solid #fa9939;
+  margin: 0;
+}
+.s-maintenance-alert-wrapper
+{
+    display:none !important;
 }
 @media screen and (max-width:500px) 
 {
     .footer_theme_inner
     {
         flex-direction: column;
+    }
+    salla-social ul
+    {
+    margin-top: 0px;
     }
 }
 </style>
