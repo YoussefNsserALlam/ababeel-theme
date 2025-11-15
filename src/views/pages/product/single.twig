@@ -97,6 +97,18 @@
         background-color: #f8dcbf;
         color: #035173;
     }
+    .s-quantity-input-input
+    {
+        background-color: #f8dcbf;
+    }
+    .theme_price_edit h4
+    {
+        color: #f8dcbf;
+    }
+    .theme_price_edit span
+    {
+        color: #fa9939;
+    }
 </style>
     <div class="container">
         {# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
@@ -226,7 +238,7 @@
                 {% endif %}
                 {# Price #}
                 <div class="flex whitespace-nowrap gap-4 items-center">
-                  <div class="{{ product.is_on_sale ? '' : 'hidden' }} space-x-2 rtl:space-x-reverse whitespace-nowrap">
+                  <div class="{{ product.is_on_sale ? '' : 'hidden' }} space-x-2 rtl:space-x-reverse whitespace-nowrap theme_price_edit">
                       <h4 class="text-red-800 font-bold text-xl inline-block">{{product.sale_price|money}}</h4>
                       <span class="text-gray-500 line-through">{{product.regular_price|money}}</span>
                   </div>
@@ -283,7 +295,7 @@
                 </div>
 
                 {% if product.sold_quantity or product.can_show_remained_quantity %}
-                    <div class="bg-white py-2.5 mb-5 rounded-md inline-flex text-sm">
+                    <div class="bg-white py-2.5 mb-5 rounded-md inline-flex text-sm theme_edit_prodact">
                         {% if product.sold_quantity %}
                             <div class="px-4 !text-red-800">
                                 <i class="sicon-fire rtl:ml-1.5 ltr:mr-1.5"></i> {{ trans('pages.products.sold') }}
@@ -348,7 +360,7 @@
 
                     {% hook 'product:single.form.end' %}
 
-                    <section class="flex bg-white p-5 sm:pb-0 rounded-md rounded-b-none">
+                    <section class="flex bg-white p-5 sm:pb-0 rounded-md rounded-b-none theme_edit_prodact">
                         <div class="center-between w-full">
                             <label class="form-label">
                                 <b class="block">
@@ -379,7 +391,7 @@
                         </section>
                     {% endif %}
 
-                    <section class="sticky-product-bar bg-white p-5 rounded-md rounded-b-none">
+                    <section class="sticky-product-bar bg-white p-5 rounded-md rounded-b-none theme_edit_prodact">
                         {# Quantity #}
                         {% if product.is_hidden_quantity or product.type == 'booking' %}
                             <input type="hidden" value="1" name="quantity" aria-label="Quantity"/>
