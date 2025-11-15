@@ -1057,21 +1057,6 @@
                     "maxLength": "200"
                 },
                 {
-                    "id": "text_area",
-                    "type": "string",
-                    "format": "textarea",
-                    "label": "Text Area",
-                    "description": "(العنوان علي البانر) اضف جملة مختصرة مفيدة",
-                    "labelHTML": null,
-                    "placeholder": "Your text here",
-                    "icon": "sicon-typography",
-                    "value": null,
-                    "multilanguage": true,
-                    "required": false,
-                    "minLength": 20,
-                    "maxLength": 255
-                },
-                {
                     "id": "title",
                     "type": "static",
                     "format": "title",
@@ -1088,6 +1073,36 @@
                     "value": "اضف فيديو في البانر اولا يجب رفع الفيديو علي الانترنت وثم وضع الرابط",
                     "variant": "h1",
                     "icon": "sicon-format-size"
+                },
+                {
+                    "id": "string2",
+                    "type": "string",
+                    "format": "text",
+                    "label": "String2",
+                    "description": "الكلمة الثانية",
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": 30
+                },
+                {
+                    "id": "string",
+                    "type": "string",
+                    "format": "text",
+                    "label": "String",
+                    "description": "الكلمة الاولي",
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": 30
                 }
             ]
         },
