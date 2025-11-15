@@ -1,6 +1,6 @@
 {# Video-banner.twig #}
 <section class="video-banner">
-    {% if component.text_area %}
+    {% if component.string %}
     <style>
         .video-banner video
         {
@@ -13,15 +13,19 @@
         .video-banner h1
         {
             position: absolute;
-            top: 20%;
+            top: 50%;
             left: 50%;
-            transform: translate(-50%, -20%);
+            transform: translate(-50%, -50%);
             z-index: 2;
             font-family: system-ui;
             color: #f7dcbe;
         }
     </style>
-        <h1>{{ component.text_area }}</h1>
+        <h1>
+            {{ component.string2 }}
+            <br>
+            {{ component.string }}
+        </h1>
     {% endif %}
 
     {% if component.url %}
