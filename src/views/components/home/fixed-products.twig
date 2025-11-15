@@ -9,7 +9,7 @@
 | limit                 | int       | Number of products to be shown                                   |
 #}
 {% set is_vertical = theme.settings.get('vertical_fixed_products', true) %}
-<section class="s-block container">
+<section class="s-block container theme_prodact_section">
     {% if title %}
       <div class="s-block__title">
         <div class="right-side">
@@ -31,5 +31,35 @@
       >
     </salla-products-list>
 </section>
+<style>
+  .theme_prodact_section
+  {
+    background-color: white !important;
+  }
+  .s-product-card-entry
+  {
+    background-color: #035173;
+    color: #f8dcbf;
+    box-shadow: 0px 0px 20px 0px #fa99397d;
+  }
+  .s-product-card-content-title a
+  {
+    color: #f8dcbf;
+  }
+  .s-product-card-sale-price h4
+  {
+    color: #fa9939 !important;
+  }
+  .s-button-primary-outline
+  {
+    border-color: #f8dcbf;
+    color: #f8dcbf;
+  }
+  .s-button-primary-outline:hover
+  {
+    background-color: #f8dcbf;
+    color: #035173;
+  }
+</style>
 
 
