@@ -11,9 +11,14 @@
 {% set is_vertical = theme.settings.get('vertical_fixed_products', true) %}
 <section class="s-block container theme_prodact_section">
     {% if title %}
-      <div class="s-block__title">
+      <div class="s-block__title justify-center">
         <div class="right-side">
           <h2>{{ title }}</h2>
+          <div class="All-line flex items-center justify-center">
+                     <div class="line"></div>
+                     <div class="Circle"></div>
+                   <div class="line"></div>
+                  </div>
           {# <p>عنوان فرعي توصيفي صغير</p> #}
         </div>
         {% if display_all_url %}
@@ -32,19 +37,19 @@
     </salla-products-list>
 </section>
 <style>
-  .theme_prodact_section
+  .theme_prodact_section, .s-block-tabs
   {
-    background-color: white !important;
+    background-color: #035173 !important;
   }
   .s-product-card-entry
   {
-    background-color: #035173;
-    color: #f8dcbf;
+    background-color: #f8dcbf;
+    color: #035173;
     box-shadow: 0px 0px 20px 0px #fa99397d;
   }
   .s-product-card-content-title a
   {
-    color: #f8dcbf;
+    color: #035173;
   }
   .s-product-card-sale-price h4
   {
@@ -52,13 +57,19 @@
   }
   .s-button-primary-outline
   {
-    border-color: #f8dcbf;
-    color: #f8dcbf;
+    border-color: #035173;
+    color: #035173;
   }
   .s-button-primary-outline:hover
   {
-    background-color: #f8dcbf;
-    color: #035173;
+    background-color: #035173;
+    color: #f8dcbf;
+  }
+  .s-block__title
+  {
+    justify-content: center !important;
+    color: #f8dcbf;
+    text-align: center;
   }
 </style>
 
