@@ -28,6 +28,20 @@
 | product.options[].details[].is_selected         | bool                       | Does current option selected? (useful in cart page)                                                         |
 | product.options[].details[].is_out              | bool                       | Does current option out of stock?                                                                           |
 #}
+<style>
+    .s-product-options-wrapper
+    {
+        background-color: #035173;
+    }
+    .s-product-options-option-label b
+    {
+        color: #f8dcbf;
+    }
+   .s-product-options-wrapper select
+   {
+        background-color: #f8dcbf;
+   }
+</style>
 {% if product.options|length %}
     <salla-product-options options="{{ product.options }}" product-id="{{ product.id }}"></salla-product-options>
 {% endif %}
