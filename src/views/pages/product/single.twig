@@ -84,13 +84,9 @@
 {% extends "layouts.master" %}
 {% block content %}
 <style>
-    .breadcrumbs, .main-content, .main-content h1
+     .main-content h1
     {
         color: #f8dcbf;
-    }
-    .breadcrumbs svg
-    {
-        fill: #fa9939;
     }
     .theme_edit_prodact
     {
@@ -108,6 +104,16 @@
     .theme_price_edit span
     {
         color: #fa9939;
+    }
+    .theme_edit_prodact salla-button button
+    {
+        background-color: #035173;
+        color: #f8dcbf;
+        border: none;
+    }
+     salla-quantity-input .s-quantity-input-container
+    {
+        border-color: #035173;
     }
 </style>
     <div class="container">
