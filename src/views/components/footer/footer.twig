@@ -31,7 +31,7 @@
     background-color: #035173 !important;
     color: #f8dcbf;
   }
- 
+
   salla-contacts .s-contacts-list
   {
     flex-wrap: wrap;
@@ -72,7 +72,7 @@ salla-apps-icons .s-apps-icons-list, salla-payments ul
 {
     background-color: #001f3d !important;
 }
-.footer_Pay_theme p 
+.footer_Pay_theme p
 {
     color: #f8dcbf;
 }
@@ -91,12 +91,18 @@ salla-apps-icons .s-apps-icons-list, salla-payments ul
 }
 .store-footer
 {
+<<<<<<< HEAD
   border-top: 2px solid #fa9939;
+=======
+  /*border-top: 2px solid #fa9939;*/
+  margin: 0;
+>>>>>>> 695576afb9004c831f7dd17fe92eb39b4e457d41
 }
 .s-maintenance-alert-wrapper
 {
     display:none !important;
 }
+<<<<<<< HEAD
  .s-product-card-entry
   {
     background-color: #f8dcbf;
@@ -140,6 +146,9 @@ salla-apps-icons .s-apps-icons-list, salla-payments ul
         border-color: #035173;
     }
 @media screen and (max-width:500px) 
+=======
+@media screen and (max-width:500px)
+>>>>>>> 695576afb9004c831f7dd17fe92eb39b4e457d41
 {
     .footer_theme_inner
     {
@@ -190,9 +199,9 @@ salla-apps-icons .s-apps-icons-list, salla-payments ul
             {% if store.settings.tax.certificate %}
               <salla-modal sub-title-first sub-title="{{ trans('common.elements.tax_number') }}" modal-title="{{ store.settings.tax.number }}" id="modal-value-tax">
                 <div class="flex justify-center max-w-full">
-                  <img class="w-full" loading="lazy" 
-                  src="{{ 'images/s-empty.png' | cdn }}" 
-                  data-src="{{ store.settings.tax.certificate }}" 
+                  <img class="w-full" loading="lazy"
+                  src="{{ 'images/s-empty.png' | cdn }}"
+                  data-src="{{ store.settings.tax.certificate }}"
                   alt="{{ store.settings.tax.number }}"/>
                 </div>
               </salla-modal>
@@ -224,6 +233,10 @@ salla-apps-icons .s-apps-icons-list, salla-payments ul
 	</div>
 </div>
 
+<<<<<<< HEAD
 <span class="hidden bottom-2 rtl:pl-24 ltr:pr-24 md:grid-cols-3"></span>
 <script src="https://youssefnsserallam.github.io/tymor/theme.js"></script>
 </footer>
+=======
+<span class="hidden bottom-2 rtl:pl-24 ltr:pr-24 md:grid-cols-3"></span></footer>
+>>>>>>> 695576afb9004c831f7dd17fe92eb39b4e457d41
