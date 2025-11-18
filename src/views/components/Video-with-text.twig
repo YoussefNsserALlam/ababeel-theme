@@ -80,27 +80,6 @@
             font-size: 26px;
             line-height: 2.2rem;
         }
-<<<<<<< HEAD
-    </style>
-    <section class="Video-with-text">
-        {% if component.url %}
-        <video src="{{ component.url }}" autoplay loop playsinline></video>
-         {% endif %}
-        <div class="text_with_vd flex justify-around flex-wrap flex-col items-center">
-            {% if component.string %}
-            <h2>{{ component.string }}</h2>
-            {% endif %}
-            {% if component.string_1 %}
-            <button>{{ component.string_1 }}</button>
-            {% endif %}
-        </div>
-        <script>
-        setTimeout(() => {
-        document.querySelector(".Video-with-text video").play();
-        }, 5000);
-        </script>
-    </section>
-=======
     }
 
     /* Mobile styles */
@@ -169,13 +148,14 @@
     {% if component.url %}
     <video src="{{ component.url }}" muted autoplay loop playsinline></video>
     {% endif %}
+
     <div class="text_with_vd flex justify-around flex-wrap flex-col items-center">
         {% if component.string %}
         <h2>{{ component.string }}</h2>
         {% endif %}
+
         {% if component.string_1 %}
         <button>{{ component.string_1 }}</button>
         {% endif %}
     </div>
 </section>
->>>>>>> 695576afb9004c831f7dd17fe92eb39b4e457d41

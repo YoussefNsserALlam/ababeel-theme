@@ -115,11 +115,13 @@
     {
         color: #f8dcbf;
     }
+
+
 </style>
-    <div class="container">
+    <div class="container extra-spacing">
         {# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
         <nav class="breadcrumbs w-full py-5">
-            <salla-breadcrumb></salla-breadcrumb>
+            <salla-breadcrumb class="breadcrumb-text"></salla-breadcrumb>
         </nav>
         <div class="flex flex-col items-start md:flex-row" id="product-{{ product.id }}">
             <div class="sidebar md:sticky top-24 w-full md:!w-2/4 rtl:ml-8 ltr:mr-8 pb-8 md:pb-16 overflow-hidden shrink-0">
@@ -249,9 +251,9 @@
                       <span class="text-gray-500 line-through">{{product.regular_price|money}}</span>
                   </div>
                   <div class="gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }}">
-                      {% if product.starting_price %} 
+                      {% if product.starting_price %}
                           <span class="">{{ trans('pages.products.starting_price') }}</span>
-                      {% endif %} 
+                      {% endif %}
                           <h2 class=" font-bold text-xl inline-block"> {{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
                   </div>
                 </div>
@@ -380,9 +382,9 @@
                                 <span class="before-price text-gray-500 line-through">{{product.regular_price|money}}</span>
                               </div>
                               <div class="starting-or-normal-price gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }}">
-                                {% if product.starting_price %} 
+                                {% if product.starting_price %}
                                   <span class="starting-price-title">{{ trans('pages.products.starting_price') }}</span>
-                                {% endif %} 
+                                {% endif %}
                                 <h2 class="total-price font-bold text-xl inline-block"> {{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
                               </div>
                             </div>
@@ -451,7 +453,7 @@
     {% if store.settings.rating.show_on_product %}
         <salla-comments item-id="{{product.id}}" type="product"></salla-comments>
     {% endif %}
-    
+
     {# Similar Products Area #}
     <div class="container">
         <salla-products-slider source="related" source-value="{{product.id}}" block-title="{{trans('pages.products.similar_products')}}" display-all-url></salla-products-slider>

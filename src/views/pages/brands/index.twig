@@ -8,11 +8,20 @@
 #}
 {% extends "layouts.master" %}
 {% block content %}
-    <div class="container mb-20">
+<style>
+
+.extra-spacing{
+    padding-top:80px;
+}
+.breadcrumb-text{
+    color:white;
+}
+</style>
+    <div class="container mb-20 extra-spacing">
 
         {# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
         <nav class="breadcrumbs w-full py-5">
-            <salla-breadcrumb></salla-breadcrumb>
+            <salla-breadcrumb class="breadcrumbt-text"></salla-breadcrumb>
         </nav>
 
         <div class="flex justify-between pt-2 pb-6">
