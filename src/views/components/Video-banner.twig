@@ -18,6 +18,11 @@
         }
 
         .video-banner-content {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            align-items: center;
+            justify-content: center;
             position: absolute;
             top: 0;
             left: 0;
@@ -32,6 +37,7 @@
         .video-banner h1 {
             font-family: system-ui;
             color: #f7dcbe;
+            font-size: 6rem;
             text-align: center;
             width: 90%;
             max-width: 1000px;
@@ -75,6 +81,7 @@
 
     <div class="video-banner-content">
         <h1>{{ component.string2 }}</h1>
+        <h1>{{component.string}}</h1>
     </div>
     {% endif %}
 
