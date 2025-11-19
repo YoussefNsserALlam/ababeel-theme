@@ -116,11 +116,15 @@
         color: #f8dcbf;
     }
 
-extra-spacing{
-    padding-top:80px;
+.extra-spacing{
+    padding-top:80px !important;
 }
-breadcrumb-text{
-    color:white;
+.breadcrumb-text{
+    color:white !important;
+}
+.description-color
+{
+    color: #f8dcbf;
 }
 </style>
     <div class="container extra-spacing">
@@ -276,7 +280,7 @@ breadcrumb-text{
                             {{ trans('pages.products.read_more') }}
                         </a>
                     {% else %}
-                        <article class="article--main pb-1">
+                        <article class="article--main pb-1 description-color">
                             {{ product_desc|raw }}
                         </article>
                     {% endif %}
