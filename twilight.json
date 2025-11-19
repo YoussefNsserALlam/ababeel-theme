@@ -1133,16 +1133,16 @@
                 {
                     "id": "about_hero_description",
                     "type": "string",
-                    "format": "text",
+                    "format": "textarea",
                     "label": "about_hero_description",
                     "description": null,
                     "labelHTML": null,
-                    "placeholder": "Placeholder text ..",
-                    "icon": "sicon-format-text-alt",
+                    "placeholder": "Your text here",
+                    "icon": "sicon-typography",
                     "value": null,
                     "multilanguage": false,
                     "required": true,
-                    "minLength": 6,
+                    "minLength": "10",
                     "maxLength": "1000"
                 },
                 {
