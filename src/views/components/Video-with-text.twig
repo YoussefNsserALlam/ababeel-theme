@@ -9,15 +9,38 @@
     gap: 30px;
     padding: 40px 20px;
     align-items: stretch;
+    position: relative;
+}
+
+/* Wrapping video container to apply overlay */
+.Video-with-text .video-wrapper {
+    position: relative;
+    width: 50%;
 }
 
 .Video-with-text video {
-    width: 50%;
+    width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 8px;
+    display: block;
 }
 
+/* Black transparent overlay */
+.Video-with-text .video-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.25); /* adjust darkness */
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Text section */
 .text_with_vd {
     width: 50%;
     background-color: #035173;
@@ -78,7 +101,7 @@
         width: 55%;
     }
 
-    .Video-with-text video {
+    .Video-with-text .video-wrapper {
         width: 45%;
     }
 
@@ -96,7 +119,7 @@
         gap: 18px;
     }
 
-    .Video-with-text video,
+    .Video-with-text .video-wrapper,
     .text_with_vd {
         width: 100%;
     }
@@ -151,8 +174,11 @@
 </style>
 
 <section class="Video-with-text">
+
     {% if component.url %}
-    <video src="{{ component.url }}" muted autoplay loop playsinline></video>
+    <div class="video-wrapper">
+        <video src="{{ component.url }}" muted autoplay loop playsinline></video>
+    </div>
     {% endif %}
 
     <div class="text_with_vd flex justify-around flex-wrap flex-col items-center">
