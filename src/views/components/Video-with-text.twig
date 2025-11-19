@@ -1,147 +1,153 @@
 {# Video-with-text.twig #}
 <style>
-    .Video-with-text video {
-        width: 50%;
-        height: auto;
-        object-fit: cover;
-    }
+.Video-with-text {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    direction: rtl;
+    gap: 30px;
+    padding: 40px 20px;
+    align-items: stretch;
+}
 
+.Video-with-text video {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.text_with_vd {
+    width: 50%;
+    background-color: #035173;
+    color: #f8d8b5;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 8px;
+}
+
+.text_with_vd h2 {
+    word-spacing: 5px;
+    font-size: 30px;
+    line-height: 2.4rem;
+    margin: 0;
+}
+
+.text_with_vd p {
+    line-height: 1.6;
+    margin: 0;
+}
+
+.Video-with-text button {
+    background-color: transparent;
+    color: #f8d8b5;
+    border: solid #f8d8b5 2px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.Video-with-text button:hover {
+    border-color: #fa9939;
+    color: #fa9939;
+}
+
+/* Large desktop */
+@media screen and (min-width: 1400px) {
     .Video-with-text {
-        width: 100%;
-        max-width: 1300px;
-        margin: 0 auto;
-        display: flex;
-        direction: rtl;
-        gap: 30px;
-        padding: 40px 20px;
-        align-items: stretch;
+        padding: 60px 20px;
     }
+}
 
-    .Video-with-text button {
-        background-color: transparent;
-        color: #f8d8b5;
-        border: solid #f8d8b5 2px;
-        padding: 10px 20px;
-        font-size: 1em;
-        cursor: pointer;
-        border-radius: 5px;
-        margin-top: 20px;
-        transition: all 0.3s ease;
-        width: fit-content;
-        place-self: start;
-    }
-
-    .Video-with-text button:hover {
-        border-color: #fa9939;
-        color: #fa9939;
+/* Tablet */
+@media screen and (max-width: 992px) {
+    .Video-with-text {
+        gap: 20px;
+        padding: 30px 15px;
     }
 
     .text_with_vd {
-        width: 50%;
-        background-color: #035173;
-        color: #f8d8b5;
-        padding: 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        padding: 30px;
+        width: 55%;
+    }
+
+    .Video-with-text video {
+        width: 45%;
     }
 
     .text_with_vd h2 {
-        word-spacing: 5px;
-        font-size: 30px;
-        line-height: 2.75rem;
-        margin-bottom: 20px;
+        font-size: 26px;
+        line-height: 2.1rem;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .Video-with-text {
+        flex-direction: column;
+        padding: 20px 15px;
+        gap: 18px;
     }
 
-    .text_with_vd p {
-        margin-bottom: 20px;
-        line-height: 1.6;
+    .Video-with-text video,
+    .text_with_vd {
+        width: 100%;
     }
 
-    /* Large desktop styles */
-    @media screen and (min-width: 1400px) {
-        .Video-with-text {
-            padding: 60px 20px;
-        }
+    .Video-with-text video {
+        max-height: 300px;
+        border-radius: 6px;
     }
 
-    /* Tablet styles */
-    @media screen and (max-width: 992px) {
-        .Video-with-text {
-            padding: 30px 15px;
-            gap: 20px;
-        }
-
-        .text_with_vd {
-            padding: 30px;
-        }
-
-        .text_with_vd h2 {
-            font-size: 26px;
-            line-height: 2.2rem;
-        }
+    .text_with_vd {
+        padding: 25px 18px;
+        text-align: center;
+        align-items: center;
+        gap: 12px;
     }
 
-    /* Mobile styles */
-    @media screen and (max-width: 768px) {
-        .Video-with-text {
-            flex-direction: column;
-            gap: 0;
-            padding: 20px 15px;
-        }
-
-        .Video-with-text video,
-        .text_with_vd {
-            width: 100%;
-        }
-
-        .Video-with-text video {
-            max-height: 300px;
-            width: 100%;
-        }
-
-        .text_with_vd {
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        .text_with_vd h2 {
-            text-align: center;
-            font-size: 24px;
-            line-height: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .Video-with-text button {
-            margin: 20px auto 0;
-            place-self: center;
-        }
+    .text_with_vd h2 {
+        font-size: 24px;
+        line-height: 1.8rem;
     }
 
-    /* Small mobile styles */
-    @media screen and (max-width: 480px) {
-        .Video-with-text {
-            padding: 15px 10px;
-        }
-
-        .text_with_vd {
-            padding: 25px 15px;
-        }
-
-        .text_with_vd h2 {
-            font-size: 20px;
-            line-height: 1.6rem;
-        }
-
-        .Video-with-text video {
-            max-height: 200px;
-        }
-
-        .Video-with-text button {
-            padding: 8px 16px;
-            font-size: 0.9em;
-        }
+    .Video-with-text button {
+        margin-top: 10px;
     }
+}
+
+/* Small mobile */
+@media screen and (max-width: 480px) {
+    .Video-with-text {
+        padding: 15px 10px;
+    }
+
+    .text_with_vd {
+        padding: 20px 15px;
+        gap: 10px;
+    }
+
+    .text_with_vd h2 {
+        font-size: 20px;
+        line-height: 1.6rem;
+    }
+
+    .Video-with-text video {
+        max-height: 200px;
+    }
+
+    .Video-with-text button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
 </style>
 
 <section class="Video-with-text">
