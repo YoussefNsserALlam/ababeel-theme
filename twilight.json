@@ -1143,7 +1143,7 @@
                     "multilanguage": false,
                     "required": true,
                     "minLength": 6,
-                    "maxLength": 30
+                    "maxLength": "1000"
                 },
                 {
                     "id": "about_hero_link",
